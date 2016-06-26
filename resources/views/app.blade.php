@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>@yield('title')</title>
+        @section('stylesheets')
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/all.css') }}">
+        @show
+        @section('scripts')
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-        
+        @show
     </head>
     <body>
         @include('_nav')
 
         <div class="container">
-
+            <ul>
+                @foreach ($types as $type)
+                    <li>{{ $type->name }}
+                        <ul>
+                            @foreach ($type->fields as $field)
+                                <li>{{ $field->name }}</li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
+            
             @yield('content')
 
         </div><!-- /.container -->

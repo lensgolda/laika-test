@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
     /**
-     * Get the Type that owns the Block.
+     * Get all of the fields for the block.
      */
-    public function type()
+    public function fields()
     {
-        return $this->belongsTo('App\Models\Type');
+        return $this->hasManyThrough('App\Models\Field', 'App\Models\Type');
     }
 }

@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$types = App\Models\Type::all();
+	
+    return view('app', ['types' => $types]);
 });
