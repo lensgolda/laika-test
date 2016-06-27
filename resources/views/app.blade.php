@@ -14,18 +14,7 @@
         @include('_nav')
 
         <div class="container">
-            <ul>
-                @foreach ($types as $type)
-                    <li>{{ $type->name }}
-                        <ul>
-                            @foreach ($type->fields as $field)
-                                <li>{{ $field->name }}</li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
-            </ul>
-            
+        
             @yield('content')
 
         </div><!-- /.container -->
