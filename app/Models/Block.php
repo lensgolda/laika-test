@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Block extends Model
 {
+    /**
+     * @var array
+     */
+    protected $fillable = ['name'];
+    
 	/**
      * Get the Type of Block
      */

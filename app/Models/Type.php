@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     /**
+     * @var array
+     */
+    protected $fillable = ['name'];
+    
+    /**
      * Get fields related to Type.
      */
     public function fields()

@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Field extends Model
 {
+	/**
+     * @var array
+     */
+    protected $fillable = ['name'];
+    
     /**
      * Get the Type that owns the Field.
      */
