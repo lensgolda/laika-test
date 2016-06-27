@@ -38,37 +38,36 @@ Route::get('/blocks/{block}', 'BlocksController@edit');
 Route::get('/block/delete/{block}', 'BlocksController@delete');
 
 /**
- * Action through Routes without Controllers
+ * or through Route (style) based without Controller@action
  */
 
-// Route::get('/type/{type_id}/fields', function ($type_id) {
-// 	$fields = Field::where('type_id', $type_id)->get();	
-// 	return view('fields.index', compact('fields'));
-// });
+Route::get('/type/{type_id}/fields', function ($type_id) {
+	$fields = Field::where('type_id', $type_id)->get();	
+	return view('fields.index', compact('fields'));
+});
 
-// Route::delete('/type/delete/{type}', function (App\Models\Type $type) {
-// 	$type->delete();
-// 	return back();
-// });
-
-
-// Route::get('/field/delete/{field}', function (App\Models\Field $field) {
-// 	$field->delete();
-// 	return back();
-// });
+Route::delete('/type/delete/{type}', function (App\Models\Type $type) {
+	$type->delete();
+	return back();
+});
 
 
-// Route::get('/blocks', function () {
-// 	$blocks = Block::all();
-//     return view('blocks.index', compact('blocks'));
-// });
+Route::get('/field/delete/{field}', function (App\Models\Field $field) {
+	$field->delete();
+	return back();
+});
 
-// Route::get('/blocks/{block}', function (App\Models\Block $block) {
-// 	// $block->update();
-// });
+Route::get('/blocks', function () {
+	$blocks = Block::all();
+    return view('blocks.index', compact('blocks'));
+});
 
-// Route::delete('/block/delete/{block}', function (App\Models\Block $block) {
-// 	$block->delete();
-// 	return back();
-// });
+Route::get('/blocks/{block}', function (App\Models\Block $block) {
+	// $block->update();
+});
+
+Route::delete('/block/delete/{block}', function (App\Models\Block $block) {
+	$block->delete();
+	return back();
+});
 
