@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Block extends Model
 {
 	/**
-     * Get Type of Block this
+     * Get the Type of Block
      */
     public function type()
     {
@@ -15,7 +15,7 @@ class Block extends Model
     }
 
     /**
-     * Get all of the fields for the block.
+     * Get all of the Fields for the Block.
      */
     public function fields()
     {

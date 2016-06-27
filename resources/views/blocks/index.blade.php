@@ -18,7 +18,7 @@
 				<td>{{ $block->name }}</td>
 				<td>{{ $block->type->name }}</td>
 				<td>
-					<a href="{{ action('BlocksController@edit', [$block->id]) }}" class="btn btn-danger">Edit</a>
+					<a href="{{ action('BlocksController@edit', [$block->id]) }}" class="btn btn-primary">Edit</a>
 					<a href="{{ action('BlocksController@delete', [$block->id]) }}" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
