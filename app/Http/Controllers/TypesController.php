@@ -14,4 +14,9 @@ class TypesController extends Controller
 
 		return back();
 	}
+
+	public function add($data)
+	{
+
+	}
 }

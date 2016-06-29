@@ -6,9 +6,7 @@
             <link rel="stylesheet" href="{{ asset('css/app.css') }}">
             <link rel="stylesheet" href="{{ asset('css/all.css') }}">
         @show
-        @section('scripts')
-
-        @show
+        
     </head>
     <body>
         @include('_nav')
@@ -18,5 +16,9 @@
             @yield('content')
 
         </div><!-- /.container -->
+
+        @section('scripts')
+
+        @show
     </body>
 </html>

@@ -16,4 +16,8 @@ elixir(function(mix) {
     mix.styles([
         'main.css'
     ]);
+    mix.scripts([
+        'jquery.js',
+        'app.js'
+    ]);
 });

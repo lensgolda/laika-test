@@ -24,7 +24,7 @@ Route::get('/', function () {
  */
 Route::get('/type/{type_id}/fields', 'FieldsController@show');
 Route::get('/type/delete/{type}', 'TypesController@delete');
-
+Route::post('/type/add', 'TypesController@add');
 /**
  * Fields
  */
@@ -42,7 +42,7 @@ Route::get('/block/delete/{block}', 'BlocksController@delete');
  */
 
 Route::get('/type/{type_id}/fields', function ($type_id) {
-	$fields = Field::where('type_id', $type_id)->get();	
+	$fields = App\Models\Field::where('type_id', $type_id)->get();	
 	return view('fields.index', compact('fields'));
 });
 
@@ -58,7 +58,7 @@ Route::get('/field/delete/{field}', function (App\Models\Field $field) {
 });
 
 Route::get('/blocks', function () {
-	$blocks = Block::all();
+	$blocks = App\Models\Block::all();
     return view('blocks.index', compact('blocks'));
 });
 
