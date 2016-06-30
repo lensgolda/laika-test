@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Models\Block;
-use App\Models\Type;
+use App\Models\{ Block, Type };
 
 class BlocksController extends Controller
 {

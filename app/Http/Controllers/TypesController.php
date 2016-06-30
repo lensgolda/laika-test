@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Models\Type;
 
@@ -18,7 +16,7 @@ class TypesController extends Controller
 
 	public function add(Request $request)
 	{
-		if($request->ajax() && $request->has('name')){
+		if($request->ajax()){
 			
 			$this->validate($request, [
 				'name' => 'required|min:2'
