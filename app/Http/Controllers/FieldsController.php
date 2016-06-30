@@ -27,7 +27,7 @@ class FieldsController extends Controller
 		if($request->ajax() && $request->has('name')){
 			
 			$this->validate($request, [
-                'name' => 'required|unique:fields|min:2',
+                'name' => 'required|min:2',
                 'type' => 'required|integer',
             ]);
 
