@@ -15,10 +15,7 @@ class CreateTypesTable extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('block_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('block_id')->references('id')->on('blocks');
         });
     }
 
@@ -29,9 +26,6 @@ class CreateTypesTable extends Migration
      */
     public function down()
     {
-        Schema::table('types', function ($table) {
-            $table->dropForeign(['block_id']);
-        });
         Schema::drop('types');
     }
 }

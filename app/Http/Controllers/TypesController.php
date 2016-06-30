@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Requests;
 use App\Models\Type;
 
@@ -15,8 +16,20 @@ class TypesController extends Controller
 		return back();
 	}
 
-	public function add($data)
+	public function add(Request $request)
 	{
+		if($request->ajax() && $request->has('input')){
+			
+			$this->validate($request, [
+				'input' => 'required|min:2'
+			]);
 
+			$type = new Type();
+			$type->name = $request->input('input');
+			$type->save();
+
+            return response()->json(['status' => 'OK']);
+        }
+		return back();
 	}
 }

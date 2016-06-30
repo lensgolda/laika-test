@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>@yield('title')</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @section('stylesheets')
             <link rel="stylesheet" href="{{ asset('css/app.css') }}">
             <link rel="stylesheet" href="{{ asset('css/all.css') }}">
@@ -18,6 +19,9 @@
         </div><!-- /.container -->
 
         @section('scripts')
+
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/app.min.js') }}"></script>
 
         @show
     </body>

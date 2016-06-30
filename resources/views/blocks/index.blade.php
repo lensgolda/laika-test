@@ -4,26 +4,44 @@
 
 	<h1>Blocks</h1>
 
-	<table class="table table-hover">
-		<tr>
-			<th>ID</th>
-			<th>Name</th>
-			<th>Type</th>
-			<th>Actions</th>
-		</tr>
-		
-		@foreach ($blocks as $block)
+	<div class="row">
+		<table class="table table-hover">
 			<tr>
-				<td>{{ $block->id }}</td>
-				<td>{{ $block->name }}</td>
-				<td>{{ $block->type->name }}</td>
-				<td>
-					<a href="{{ action('BlocksController@edit', [$block->id]) }}" class="btn btn-primary">Edit</a>
-					<a href="{{ action('BlocksController@delete', [$block->id]) }}" class="btn btn-danger">Delete</a>
-				</td>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Actions</th>
 			</tr>
-		@endforeach
-		
-	</table>
+			
+			@foreach ($blocks as $block)
+				<tr>
+					<td>{{ $block->id }}</td>
+					<td>{{ $block->name }}</td>
+					<td>{{ $block->type->name }}</td>
+					<td>
+						<a href="{{ action('BlocksController@edit', [$block->id]) }}" class="btn btn-primary">Edit</a>
+						<a href="{{ action('BlocksController@delete', [$block->id]) }}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			@endforeach
+			
+		</table>
+	</div>
+
+	<div class="row">
+		<form class="form-inline">
+			<div class="form-group">
+				<input id="add_value" type="text" name="block" class="form-control" aria-describedby="helpBlock2">
+				<select name="types" id="selType" class="form-control">
+					@foreach ($types as $type)
+						<option value="{{ $type->id }}">{{ $type->name }}</option>
+					@endforeach
+				</select>
+				<button type="submit" class="btn btn-success">Add</button>
+				<span class="help-block"></span>
+			</div>
+			
+		</form>
+	</div>
 
 @endsection
