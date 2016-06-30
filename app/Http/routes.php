@@ -33,6 +33,7 @@ Route::get('/blocks', 'BlocksController@show');
 Route::get('/blocks/{block}', 'BlocksController@edit');
 Route::get('/block/delete/{block}', 'BlocksController@delete');
 Route::post('/block/add', 'BlocksController@add');
+Route::post('/block/update/{block}', 'BlocksController@update');
 
 /**
  * Fields

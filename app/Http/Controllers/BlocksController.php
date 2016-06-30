@@ -19,7 +19,8 @@ class BlocksController extends Controller
 
     public function edit(Block $block)
     {
-    	return view();
+        $types = Type::all();
+    	return view('blocks.edit', compact('block', 'types'));
     }
 
     public function delete(Block $block)
@@ -31,7 +32,7 @@ class BlocksController extends Controller
 
     public function add(Request $request)
     {
-        if($request->ajax() && $request->has('name') && $request->has('type_id') && $request->input('type_id')){
+        if($request->ajax() && $request->has('name') && $request->has('type')){
             
             $this->validate($request, [
                 'name' => 'required|min:2',
@@ -40,11 +41,28 @@ class BlocksController extends Controller
 
             $block = new Block();
             $block->name = $request->input('name');
-            $block->type_id = $request->input('type_id');
+            $block->type_id = $request->input('type');
+            
             $block->save();
 
             return response()->json(['status' => 'OK']);
         }
         return back();
+    }
+
+    public function update(Request $request, $id)
+    {
+        
+        $this->validate($request, [
+            'block_name' => 'required',
+            'type_id' => 'required',
+        ]);
+        
+        $block = Block::findOrFail($id);
+        $block->name = $request->input('block_name');
+        $block->type_id = $request->input('type_id');
+        $block->save();
+
+        return redirect('/blocks');
     }
 }

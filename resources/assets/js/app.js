@@ -9,7 +9,7 @@ $(document).ready(function () {
 
         $data = {};
         $data.name = $('#add_value').val();
-        $data.type_id = $('#selectType').val() || false;
+        $data.type = $('#selectType').val() || false;
 
         $.ajax({
             type: "POST",
