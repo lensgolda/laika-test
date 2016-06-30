@@ -28,7 +28,7 @@ class TypesController extends Controller
 			$type->name = $request->input('name');
 			$type->save();
 
-            return response()->json(['status' => 'OK']);
+            return response()->json(['status' => 200]);
         }
 		return back();
 	}

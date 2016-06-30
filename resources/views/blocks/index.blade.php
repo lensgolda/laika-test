@@ -33,16 +33,23 @@
 			<div class="form-group">
 				<input id="add_value" type="text" name="block" class="form-control"
 					data-url="/block/add" aria-describedby="helpBlock2">
-				<select name="type" id="selectType" class="form-control">
+				<select name="type" id="type_id" class="form-control">
 					@foreach ($types as $type)
 						<option value="{{ $type->id }}">{{ $type->name }}</option>
 					@endforeach
 				</select>
 				<button type="submit" class="btn btn-success">Add</button>
-				<span class="help-block"></span>
+				<div class="errors"></div>
 			</div>
 			
 		</form>
 	</div>
 
+@endsection
+
+@section('scripts')
+
+	@parent
+	<script src="{{ asset('js/app.min.js') }}"></script>
+	
 @endsection

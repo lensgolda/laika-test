@@ -32,11 +32,11 @@ class BlocksController extends Controller
 
     public function add(Request $request)
     {
-        if($request->ajax() && $request->has('name') && $request->has('type')){
+        if($request->ajax()){
             
             $this->validate($request, [
                 'name' => 'required|min:2',
-                'type_id' => 'required|integer',
+                'type' => 'required|integer',
             ]);
 
             $block = new Block();
@@ -45,7 +45,7 @@ class BlocksController extends Controller
             
             $block->save();
 
-            return response()->json(['status' => 'OK']);
+            return response()->json(['status' => 200]);
         }
         return back();
     }

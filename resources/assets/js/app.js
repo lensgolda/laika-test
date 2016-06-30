@@ -9,7 +9,7 @@ $(document).ready(function () {
 
         $data = {};
         $data.name = $('#add_value').val();
-        $data.type = $('#selectType').val() || false;
+        $data.type = $('#type_id').val();
 
         $.ajax({
             type: "POST",
@@ -17,14 +17,12 @@ $(document).ready(function () {
             data : $data,
             cache: false,
             success: function(response) {
-                if (response.status == 'OK') {
+                if (response.status === 200) {
                     location.reload();
                 }
             },
             error: function(err) {
                 console.log(err.responseJSON);
-                //$('.help-block').html(err.responseJSON.select[0] || 'Что-то с селектом...');
-                //$('.help-block').html(err.responseJSON.input[0] || 'Что-то с инпутом...');
             }
         });
         
