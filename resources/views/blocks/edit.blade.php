@@ -2,6 +2,14 @@
 
 @section('content')
 
+@if($errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
+
 <h1>Edit {{ $block->name }}</h1>
 
 <div class="row">
@@ -20,14 +28,6 @@
 			<span class="help-block"></span>
 		</div>
 	</form>
-
-	@if($errors->any())
-	    <div class="alert alert-danger">
-	        @foreach($errors->all() as $error)
-	            <p>{{ $error }}</p>
-	        @endforeach
-	    </div>
-	@endif
 
 </div>
 
