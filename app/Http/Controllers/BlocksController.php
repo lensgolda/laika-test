@@ -19,7 +19,7 @@ class BlocksController extends Controller
 
     public function edit(Block $block)
     {
-    	dd($block->id);
+    	return view();
     }
 
     public function delete(Block $block)
@@ -27,5 +27,24 @@ class BlocksController extends Controller
     	$block->delete();
 
     	return back();
+    }
+
+    public function add(Request $request)
+    {
+        if($request->ajax() && $request->has('name') && $request->has('type_id') && $request->input('type_id')){
+            
+            $this->validate($request, [
+                'name' => 'required|min:2',
+                'type_id' => 'required|integer',
+            ]);
+
+            $block = new Block();
+            $block->name = $request->input('name');
+            $block->type_id = $request->input('type_id');
+            $block->save();
+
+            return response()->json(['status' => 'OK']);
+        }
+        return back();
     }
 }

@@ -32,6 +32,7 @@ Route::post('/type/add', 'TypesController@add');
 Route::get('/blocks', 'BlocksController@show');
 Route::get('/blocks/{block}', 'BlocksController@edit');
 Route::get('/block/delete/{block}', 'BlocksController@delete');
+Route::post('/block/add', 'BlocksController@add');
 
 /**
  * Fields

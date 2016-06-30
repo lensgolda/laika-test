@@ -16,7 +16,7 @@ class Block extends Model
      */
     public function type()
     {
-    	return $this->hasOne('App\Models\Type');
+    	return $this->belongsTo('App\Models\Type');
     }
 
     /**

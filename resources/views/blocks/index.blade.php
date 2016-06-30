@@ -31,8 +31,9 @@
 	<div class="row">
 		<form class="form-inline">
 			<div class="form-group">
-				<input id="add_value" type="text" name="block" class="form-control" aria-describedby="helpBlock2">
-				<select name="types" id="selType" class="form-control">
+				<input id="add_value" type="text" name="block" class="form-control"
+					data-url="/block/add" aria-describedby="helpBlock2">
+				<select name="types" id="selectType" class="form-control">
 					@foreach ($types as $type)
 						<option value="{{ $type->id }}">{{ $type->name }}</option>
 					@endforeach

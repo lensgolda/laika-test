@@ -18,14 +18,14 @@ class TypesController extends Controller
 
 	public function add(Request $request)
 	{
-		if($request->ajax() && $request->has('input')){
+		if($request->ajax() && $request->has('name')){
 			
 			$this->validate($request, [
-				'input' => 'required|min:2'
+				'name' => 'required|min:2'
 			]);
 
 			$type = new Type();
-			$type->name = $request->input('input');
+			$type->name = $request->input('name');
 			$type->save();
 
             return response()->json(['status' => 'OK']);

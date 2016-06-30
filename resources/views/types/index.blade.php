@@ -28,7 +28,8 @@
 	<div class="row">
 		<form class="form-inline">
 			<div class="form-group">
-				<input id="add_value" type="text" name="type" class="form-control" aria-describedby="helpBlock2">
+				<input id="add_value" type="text" name="type" class="form-control" 
+					data-url="/type/add" aria-describedby="helpBlock2">
 				<button type="submit" class="btn btn-success">Add</button>
 				<span class="help-block"></span>
 			</div>

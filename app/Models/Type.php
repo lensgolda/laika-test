@@ -24,6 +24,6 @@ class Type extends Model
      */
     public function blocks()
     {
-        return $this->belongsTo('App\Models\Block');
+        return $this->hasMany('App\Models\Block');
     }
 }
