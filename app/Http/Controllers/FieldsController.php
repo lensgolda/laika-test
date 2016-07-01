@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
-use App\Models\Field;
+use App\Models\{ Field, Type };
 
 class FieldsController extends Controller
 {
-	public function show($type_id)
+	public function show(Type $type)
 	{
-		$fields = Field::where('type_id', $type_id)->get();
+		$fields = $type->fields;
+		$type_id = $type->id;
 		
 		return view('fields.index', compact('fields' , 'type_id'));
 	}

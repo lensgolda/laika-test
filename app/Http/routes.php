@@ -37,7 +37,7 @@ Route::post('/block/update/{block}', 'BlocksController@update');
 /**
  * Fields
  */
-Route::get('/type/{type_id}/fields', 'FieldsController@show');
+Route::get('/fields/type/{type}', 'FieldsController@show');
 Route::get('/field/delete/{field}', 'FieldsController@delete');
 Route::post('/field/add', 'FieldsController@add');
 /**
